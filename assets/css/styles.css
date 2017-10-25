@@ -1,0 +1,19 @@
+
+.everything {
+    width: 800px;
+    margin:0 auto;
+    margin-top: 100px;
+}
+p {
+    text-align: left;
+}
+.myCanvas {
+    width: 700px; 
+    height: 200px;
+    border: 2px solid black;
+    margin:0 auto;
+}
+.buttons {
+    width: 330px;
+    margin:0 auto;
+}
