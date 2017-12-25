@@ -1,8 +1,19 @@
-
-var canvas = document.getElementById('myCanvas');
+var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext('2d');
 var cw = canvas.width;
 var ch = canvas.height;
+
+var canvases = document.getElementsByClassName("myCanvas");
+for (var i = 0; i < canvases.length; i++) {
+	canvases[i].onclick = function(e) {
+		document.getElementById("myCanvas").removeAttribute("id");
+		e.target.setAttribute("id", "myCanvas");
+		canvas = document.getElementById("myCanvas");
+		ctx = canvas.getContext('2d');
+		cw = canvas.width;
+		ch = canvas.height;
+	};
+};
 
 document.getElementById("button1").addEventListener("click", function() {
     var height = canvas.offsetHeight;
@@ -23,13 +34,9 @@ document.getElementById("button3").addEventListener("click", function() {
 	canvas.style.opacity = 0.3;
 });
 
-document.getElementById("button6").addEventListener("click", function() {
-  	canvas.reset = location.reload();
-});
-
 document.getElementById("button4").addEventListener("click", function() {
 	canvas.style.opacity = 1;
-	var grd = ctx.createLinearGradient(0, 0, cw, ch);
+	var grd = ctx.createLinearGradient(0, 0, 0, ch);
 		grd.addColorStop(0, "red");
 		grd.addColorStop(.18, "orange");
 		grd.addColorStop(.36, "yellow");
@@ -44,10 +51,13 @@ document.getElementById("button4").addEventListener("click", function() {
 });
 
 document.getElementById("button5").addEventListener("click", function() {
-	
 	canvas.style.opacity = 1;
 	ctx.fillStyle = "black"
 	ctx.font = "50px Arial black";
 	ctx.fillText("Wonderful!",10,50);
 
 });	
+
+document.getElementById("button6").addEventListener("click", function() {
+  	canvas.reset = location.reload();
+});
