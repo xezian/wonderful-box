@@ -6,9 +6,12 @@ var ch = canvas.height;
 var canvases = document.getElementsByClassName("myCanvas");
 for (var i = 0; i < canvases.length; i++) {
 	canvases[i].onclick = function(e) {
-		document.getElementById("myCanvas").removeAttribute("id");
+		var oldcan = document.getElementById("myCanvas")
+		oldcan.removeAttribute("id");
+		oldcan.setAttribute("style","border-radius:none;");
 		e.target.setAttribute("id", "myCanvas");
 		canvas = document.getElementById("myCanvas");
+		canvas.setAttribute("style","border-radius:10px;");
 		ctx = canvas.getContext('2d');
 		cw = canvas.width;
 		ch = canvas.height;
